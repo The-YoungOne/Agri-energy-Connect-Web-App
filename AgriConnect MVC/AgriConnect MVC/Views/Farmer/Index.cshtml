@@ -6,9 +6,6 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -23,6 +20,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Approved)
             </th>
             <th></th>
         </tr>
@@ -42,6 +42,22 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Number)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approved)
+            </td>
+                <td>
+                    <span class="badge @(item.Approved == "Yes" ? "badge-success" : "badge-danger")">
+                        @(item.Approved == "Yes" ? "Approved" : "Not Approved")
+                    </span>
+                </td>
+                <td>
+                    <form asp-action="Approve" method="post">
+                        <input type="hidden" name="id" value="@item.FarmerId" />
+                        <button type="submit" class="btn @(item.Approved == "Yes" ? "btn-success" : "btn-danger")">
+                            @(item.Approved == "Yes" ? "Approved" : "Not Approved")
+                        </button>
+                    </form>
+                </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.FarmerId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.FarmerId">Details</a> |

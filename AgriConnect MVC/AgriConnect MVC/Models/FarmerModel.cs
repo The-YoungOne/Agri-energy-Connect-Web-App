@@ -16,6 +16,8 @@ namespace AgriConnect_MVC.Models
         public string Email { get; set; }
         [Required]
         public string Number { get; set; }
+        [Required]
+        public string Approved { get; set; }
 
 
         // Navigation property for farmer products

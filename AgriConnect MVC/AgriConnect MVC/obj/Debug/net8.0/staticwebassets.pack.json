@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\AgriConnect MVC.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\wwwroot\\css\\bootswatchTheme.css",
+      "PackagePath": "staticwebassets\\css\\bootswatchTheme.css"
+    },
+    {
       "Id": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AgriConnect_MVC.Data;
 using AgriConnect_MVC.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace AgriConnect_MVC.Controllers
 {
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public ProductController(ApplicationDbContext context)
+        public ProductController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Product
@@ -48,7 +51,7 @@ namespace AgriConnect_MVC.Controllers
         // GET: Product/Create
         public IActionResult Create()
         {
-            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Email");
+            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Approved");
             return View();
         }
 
@@ -57,21 +60,68 @@ namespace AgriConnect_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,Name,Category,Quantity,ProductionDate,FarmerId")] ProductModel productModel)
+        public async Task<IActionResult> Create([Bind("ProductId,Name,Category,Quantity,ProductionDate,ImageUrl")] ProductModel productModel)
         {
             try
             {
-                _context.Add(productModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var userEmail = User.Identity.Name;
+
+                var farmer = await _context.Farmers.SingleOrDefaultAsync(f => f.Email == userEmail);
+
+                if (farmer != null)
+                {
+                    productModel.FarmerId = farmer.FarmerId;
+
+                    _context.Add(productModel);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Farmer not found.");
+                    ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Approved", productModel.FarmerId);
+                    return View(productModel);
+                }
             }
-            catch (DbUpdateException ex)
+            catch(DbUpdateException ex)
             {
                 // Log the exception or handle it appropriately
                 Console.WriteLine($"Error: {ex.Message}");
-                ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Email", productModel.FarmerId);
+                ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Approved", productModel.FarmerId);
                 return View(productModel);
             }
+
+            //if (ModelState.IsValid)
+            //{
+            //    var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+
+            //    if (user != null)
+            //    {
+            //        var farmer = await _context.Farmers.SingleOrDefaultAsync(f => f.Email == user.Email);
+            //        if (farmer != null)
+            //        {
+            //            productModel.FarmerId = farmer.FarmerId;
+
+            //            _context.Add(productModel);
+            //            await _context.SaveChangesAsync();
+            //            return RedirectToAction(nameof(Index));
+            //        }
+            //        else
+            //        {
+            //            ModelState.AddModelError(string.Empty, "Farmer not found.");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        ModelState.AddModelError(string.Empty, "User not found.");
+            //    }
+
+            //    _context.Add(productModel);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Approved", productModel.FarmerId);
+            //return View(productModel);
         }
 
         // GET: Product/Edit/5
@@ -87,7 +137,7 @@ namespace AgriConnect_MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Email", productModel.FarmerId);
+            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Approved", productModel.FarmerId);
             return View(productModel);
         }
 
@@ -96,7 +146,7 @@ namespace AgriConnect_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Category,Quantity,ProductionDate,FarmerId")] ProductModel productModel)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Category,Quantity,ProductionDate,ImageUrl,FarmerId")] ProductModel productModel)
         {
             if (id != productModel.ProductId)
             {
@@ -123,7 +173,7 @@ namespace AgriConnect_MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Email", productModel.FarmerId);
+            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Approved", productModel.FarmerId);
             return View(productModel);
         }
 

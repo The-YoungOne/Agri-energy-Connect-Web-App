@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AgriConnect_MVC.Data;
 using AgriConnect_MVC.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace AgriConnect_MVC.Controllers
 {
     public class EmployeeController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public EmployeeController(ApplicationDbContext context)
+        public EmployeeController(ApplicationDbContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         // GET: Employee
@@ -54,20 +59,80 @@ namespace AgriConnect_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeId,Name,Surname,Email,Number")] EmployeeModel employeeModel)
+        public async Task<IActionResult> Create([Bind("EmployeeId,Name,Surname,Number,Email,Password,ConfirmPassword")] EmployeeModel employeeModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                _context.Add(employeeModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // Create a new IdentityUser
+                var user = new IdentityUser { UserName = employeeModel.Email, Email = employeeModel.Email, EmailConfirmed = true };
+                var result = await _userManager.CreateAsync(user, employeeModel.Password);
+
+                if (result.Succeeded)
+                {
+                    // Assign the Employee role
+                    if (!await _roleManager.RoleExistsAsync("Employee"))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole("Employee"));
+                    }
+
+                    await _userManager.AddToRoleAsync(user, "Employee");
+
+                    // Add the employee to the Employee table
+                    _context.Add(employeeModel);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
             }
-            catch (DbUpdateException ex)
-            {
-                // Log the exception or handle it appropriately
-                Console.WriteLine($"Error: {ex.Message}");
-                return View(employeeModel);
-            }
+            return View(employeeModel);
+
+            //try
+            //{
+            //    // Create a new IdentityUser
+            //    var user = new IdentityUser { UserName = employeeModel.Email, Email = employeeModel.Email, EmailConfirmed = true };
+            //    var result = await _userManager.CreateAsync(user, employeeModel.Password);
+
+            //    if (result.Succeeded)
+            //    {
+            //        // Assign the Employee role
+            //        if (!await _roleManager.RoleExistsAsync("Employee"))
+            //        {
+            //            await _roleManager.CreateAsync(new IdentityRole("Employee"));
+            //        }
+
+            //        await _userManager.AddToRoleAsync(user, "Employee");
+
+            //        // Add the employee to the Employee table
+            //        _context.Add(employeeModel);
+            //        await _context.SaveChangesAsync();
+
+            //        return RedirectToAction(nameof(Index));
+            //    }
+            //    else
+            //    {
+            //        foreach (var error in result.Errors)
+            //        {
+            //            ModelState.AddModelError(string.Empty, error.Description);
+            //        }
+            //    }
+
+            //    _context.Add(employeeModel);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //catch (DbUpdateException ex)
+            //{
+            //    // Log the exception or handle it appropriately
+            //    Console.WriteLine($"Error: {ex.Message}");
+            //    return View(employeeModel);
+            //}
         }
 
         // GET: Employee/Edit/5
@@ -91,7 +156,7 @@ namespace AgriConnect_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,Name,Surname,Email,Number")] EmployeeModel employeeModel)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,Name,Surname,Email,Number,Password,ConfirmPassword")] EmployeeModel employeeModel)
         {
             if (id != employeeModel.EmployeeId)
             {

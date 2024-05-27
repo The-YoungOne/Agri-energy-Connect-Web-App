@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AgriConnect_MVC.Data;
 using AgriConnect_MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AgriConnect_MVC.Controllers
 {
+    [Authorize(Roles = "Employee")]
     public class FarmerController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -17,6 +19,23 @@ namespace AgriConnect_MVC.Controllers
         public FarmerController(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        //this method adds the approval button for employees to toggle
+        [HttpPost]
+        public async Task<IActionResult> Approve(int id)
+        {
+            var farmer = await _context.Farmers.FindAsync(id);
+            if (farmer == null)
+            {
+                return NotFound();
+            }
+
+            farmer.Approved = farmer.Approved == "Yes" ? "No" : "Yes"; // Toggle approval status
+            _context.Update(farmer);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index)); // Redirect to the list of farmers
         }
 
         // GET: Farmer
@@ -54,20 +73,15 @@ namespace AgriConnect_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FarmerId,Name,Surname,Email,Number")] FarmerModel farmerModel)
+        public async Task<IActionResult> Create([Bind("FarmerId,Name,Surname,Email,Number,Approved")] FarmerModel farmerModel)
         {
-            try
+            if (ModelState.IsValid)
             {
                 _context.Add(farmerModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            catch (DbUpdateException ex)
-            {
-                // Log the exception or handle it appropriately
-                Console.WriteLine($"Error: {ex.Message}");
-                return View(farmerModel);
-            }
+            return View(farmerModel);
         }
 
         // GET: Farmer/Edit/5
@@ -91,34 +105,20 @@ namespace AgriConnect_MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FarmerId,Name,Surname,Email,Number")] FarmerModel farmerModel)
+        public async Task<IActionResult> Edit(int id, [Bind("FarmerId,Name,Surname,Email,Number,Approved")] FarmerModel farmerModel)
         {
-            if (id != farmerModel.FarmerId)
+            try
             {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(farmerModel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!FarmerModelExists(farmerModel.FarmerId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _context.Add(farmerModel);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(farmerModel);
+            catch (DbUpdateException ex)
+            {
+                // Log the exception or handle it appropriately
+                Console.WriteLine($"Error: {ex.Message}");
+                return View(farmerModel);
+            }
         }
 
         // GET: Farmer/Delete/5

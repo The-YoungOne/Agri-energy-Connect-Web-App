@@ -20,3 +20,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.hero-section {
+    background-image: url('https://i0.hippopx.com/photos/193/167/776/agriculture-blur-close-up-cropland-preview.jpg'); /* Replace with your background image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
+
+.hero-content {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+    .hero-content h1 {
+        color: white;
+        font-size: 4rem;
+        font-weight: bold;
+    }
+
+    .hero-content h2 {
+        color: white;
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
