@@ -3,6 +3,9 @@ using AgriConnect_MVC.Data;
 using AgriConnect_MVC.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,12 @@ builder.Services.AddControllersWithViews();
 
 
 var app = builder.Build();
+
+// Bypass SSL certificate validation for development or testing environment
+if (app.Environment.IsDevelopment())
+{
+    ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -46,16 +55,16 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 //adds roles to the program
-using(var scope = app.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
-    var roleManger=
+    var roleManger =
         scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-    var roles = new[] {"Employee", "Farmer"};
+    var roles = new[] { "Employee", "Farmer" };
 
     foreach (var role in roles)
     {
-        if(!await roleManger.RoleExistsAsync(role))
+        if (!await roleManger.RoleExistsAsync(role))
         {
             await roleManger.CreateAsync(new IdentityRole(role));
         }
@@ -75,7 +84,7 @@ using (var scope = app.Services.CreateScope())
     if (await userManager.FindByEmailAsync(email) == null)
     {
         var user = new IdentityUser { UserName = email, Email = email, EmailConfirmed = true };
-        await userManager.CreateAsync(user,password);
+        await userManager.CreateAsync(user, password);
         await userManager.AddToRoleAsync(user, "Employee");
     }
 
