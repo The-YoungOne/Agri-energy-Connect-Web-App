@@ -47,8 +47,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAADOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-31T09:49:09.946Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -71,7 +70,7 @@
               "RelativeDocumentMoniker": "AgriConnect MVC\\Program.cs",
               "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Program.cs",
               "RelativeToolTip": "AgriConnect MVC\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAaAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-31T18:10:29.675Z",
               "EditorCaption": ""
