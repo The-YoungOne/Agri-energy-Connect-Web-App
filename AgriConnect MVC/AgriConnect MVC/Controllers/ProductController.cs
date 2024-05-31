@@ -215,34 +215,6 @@ namespace AgriConnect_MVC.Controllers
                 ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Approved", productModel.FarmerId);
                 return View(productModel);
             }
-
-            //if (id != productModel.ProductId)
-            //{
-            //    return NotFound();
-            //}
-
-            //if (ModelState.IsValid)
-            //{
-            //    try
-            //    {
-            //        _context.Update(productModel);
-            //        await _context.SaveChangesAsync();
-            //    }
-            //    catch (DbUpdateConcurrencyException)
-            //    {
-            //        if (!ProductModelExists(productModel.ProductId))
-            //        {
-            //            return NotFound();
-            //        }
-            //        else
-            //        {
-            //            throw;
-            //        }
-            //    }
-            //    return RedirectToAction(nameof(Profile));
-            //}
-            //ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Approved", productModel.FarmerId);
-            //return View(productModel);
         }
 
 

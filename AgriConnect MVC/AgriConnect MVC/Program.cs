@@ -65,19 +65,54 @@ using(var scope = app.Services.CreateScope())
 //creates the first default admin user.
 using (var scope = app.Services.CreateScope())
 {
-    var userManger =
-        scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
+    //default employee user
     string email = "employee@employee.com";
     string password = "Admin1234#";
 
-    if (await userManger.FindByEmailAsync(email) == null)
+    if (await userManager.FindByEmailAsync(email) == null)
     {
         var user = new IdentityUser { UserName = email, Email = email, EmailConfirmed = true };
+        await userManager.CreateAsync(user,password);
+        await userManager.AddToRoleAsync(user, "Employee");
+    }
 
-        await userManger.CreateAsync(user,password);
+    // Create default farmer user
+    string farmerEmail = "john@doefarming.com";
+    string farmerPassword = "Farmer1234#";
 
-        await userManger.AddToRoleAsync(user, "Employee");
+    if (await userManager.FindByEmailAsync(farmerEmail) == null)
+    {
+        var user = new IdentityUser { UserName = farmerEmail, Email = farmerEmail, EmailConfirmed = true };
+        await userManager.CreateAsync(user, farmerPassword);
+        await userManager.AddToRoleAsync(user, "Farmer");
+
+        // Add Farmer details
+        var farmer = new FarmerModel
+        {
+            FarmerId = 0,
+            Name = "John",
+            Surname = "Doe",
+            Email = "john@doefarming.com",
+            Number = "1234567890",
+            Approved = "Yes"
+        };
+
+        context.Farmers.Add(farmer);
+        await context.SaveChangesAsync();
+
+        // Add products for the farmer
+        var products = new[]
+        {
+            new ProductModel { Name = "Carrots", Category = ProductCategory.Vegetable, Quantity = 100, ProductionDate = DateTime.Now.AddDays(-10), ImageUrl = "https://images.pexels.com/photos/3650647/pexels-photo-3650647.jpeg?auto=compress&cs=tinysrgb&w=600", FarmerId = farmer.FarmerId },
+            new ProductModel { Name = "Chicken Eggs", Category = ProductCategory.Protein, Quantity = 50, ProductionDate = DateTime.Now.AddDays(-5), ImageUrl = "https://images.pexels.com/photos/4207676/pexels-photo-4207676.jpeg?auto=compress&cs=tinysrgb&w=600", FarmerId = farmer.FarmerId },
+            new ProductModel { Name = "Bananas", Category = ProductCategory.Fruit, Quantity = 200, ProductionDate = DateTime.Now.AddDays(-2), ImageUrl = "https://images.pexels.com/photos/47305/bananas-banana-shrub-fruits-yellow-47305.jpeg?auto=compress&cs=tinysrgb&w=600", FarmerId = farmer.FarmerId }
+        };
+
+        context.Products.AddRange(products);
+        await context.SaveChangesAsync();
     }
 }
 

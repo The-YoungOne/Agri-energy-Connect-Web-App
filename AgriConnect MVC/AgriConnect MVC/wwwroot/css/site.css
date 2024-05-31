@@ -1,24 +1,8 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
+html, body {
+    height: 100%; /* Ensure html and body take up full height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .hero-section {
@@ -33,6 +17,9 @@ body {
     align-items: center;
     text-align: center;
     margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    z-index: 1; /* Ensure it is behind the navbar */
+    position: relative; /* Ensure proper stacking context */
 }
 
 .hero-content {
@@ -49,5 +36,198 @@ body {
     .hero-content h2 {
         color: white;
         font-size: 2rem;
+        margin-top: 1rem;
+    }
+
+.about-us-section {
+    padding: 2rem 1rem;
+    background-color: #f8f9fa; /* Light background color to distinguish it from the hero section */
+    text-align: center;
+    margin-bottom: 3rem; /* Add margin to separate it from the next section */
+}
+
+    .about-us-section h2 {
+        color: mediumseagreen;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: bold; /* Make the "About Us" header bold */
+    }
+
+.about-us-paragraph {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    padding: 0 10%; /* Add padding to center the paragraph text */
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-us-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: 80%; /* Adjust width as needed */
+    padding: 0 10%; /* Add padding to center the content */
+}
+
+    .about-us-item img {
+        width: 150px;
+        height: 150px;
+        margin-right: 1rem;
+    }
+
+    .about-us-item p {
+        flex: 1;
+        text-align: left;
+        font-weight: bold; /* Make the descriptions bold */
+    }
+
+.current-services-section {
+    padding: 2rem 1rem;
+    background-color: mediumseagreen; /* Green background color */
+    text-align: center;
+    color: white; /* White text color */
+    margin-bottom: 3rem; /* Add margin to separate it from the next section */
+}
+
+    .current-services-section h2 {
+        color: white;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: bold; /* Make the "Current Services" header bold */
+    }
+
+.current-services-paragraph {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    padding: 0 10%; /* Add padding to center the paragraph text */
+}
+
+.current-services-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: white;
+    color: black;
+    width: 300px;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+    .service-card img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-card p {
+        font-size: 1rem;
+    }
+
+.faq-section {
+    padding: 2rem 1rem;
+    background-color: #ffffff; /* White background color */
+    color: black; /* Black text color */
+    margin-top: 3rem; /* Add margin to separate it from the previous section */
+}
+
+    .faq-section h2 {
+        color: mediumseagreen;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: bold; /* Make the "Frequently Asked Questions" header bold */
+        text-align: center; /* Center align the title */
+    }
+
+.faq-paragraph {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center; /* Center align the paragraph */
+    padding: 0 10%; /* Add padding to center the paragraph text */
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: black; /* Black text color for questions */
+}
+
+.faq-arrow {
+    margin-left: 0.5rem;
+}
+
+.faq-answer {
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.contact-us-section {
+    padding: 2rem 1rem;
+    background-color: #f8f9fa; /* Light background color */
+    text-align: center;
+    margin-top: 3rem; /* Add margin to separate it from the previous section */
+}
+
+    .contact-us-section h2 {
+        color: black;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: bold; /* Make the "Contact Us" header bold */
+    }
+
+.contact-us-paragraph {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    padding: 0 10%; /* Add padding to center the paragraph text */
+}
+
+.contact-us-form {
+    max-width: 600px;
+    margin: 0 auto; /* Center align the form */
+}
+
+    .contact-us-form .form-group {
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .contact-us-form label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-us-form .form-control {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .contact-us-form .btn {
         margin-top: 1rem;
     }

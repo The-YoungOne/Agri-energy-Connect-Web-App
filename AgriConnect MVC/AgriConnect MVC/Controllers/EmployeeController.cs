@@ -149,34 +149,6 @@ namespace AgriConnect_MVC.Controllers
                 Console.WriteLine($"Error {ex.Message}");
                 return View(employeeModel);
             }
-
-
-            //if (id != employeeModel.EmployeeId)
-            //{
-            //    return NotFound();
-            //}
-
-            //if (ModelState.IsValid)
-            //{
-            //    try
-            //    {
-            //        _context.Update(employeeModel);
-            //        await _context.SaveChangesAsync();
-            //    }
-            //    catch (DbUpdateConcurrencyException)
-            //    {
-            //        if (!EmployeeModelExists(employeeModel.EmployeeId))
-            //        {
-            //            return NotFound();
-            //        }
-            //        else
-            //        {
-            //            throw;
-            //        }
-            //    }
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //return View(employeeModel);
         }
 
         // GET: Employee/Delete/5

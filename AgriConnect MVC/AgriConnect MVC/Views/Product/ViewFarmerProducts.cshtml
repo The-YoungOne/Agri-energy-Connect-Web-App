@@ -10,6 +10,38 @@
     <a href="@Url.Action("AllProducts", "Product")">Return to Marketplace</a>
 </p>
 
+<div class="row mb-3">
+    <div class="col-md-12">
+        <form method="get" asp-action="AllProducts">
+            <div class="form-row align-items-end">
+                <div class="form-group col-md-2">
+                    <label for="category">Category</label>
+                    <select class="form-control" id="category" name="category">
+                        <option value="">All Categories</option>
+                        @foreach (var category in Enum.GetValues(typeof(AgriConnect_MVC.Models.ProductCategory)))
+                        {
+                            <option value="@category">@category</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate" />
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="endDate">End Date</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate" />
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12 text-right">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class="row mt-3">
     @foreach (var product in Model)
     {

@@ -1,11 +1,115 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml"; // Assuming you have a layout file
 }
 
 <div class="hero-section">
     <div class="hero-content">
-        <h1>Agri-Energy Connect</h1>
-        <h2>Growing Together - From the Farm onto your doorstep.</h2>
+        <h1>Agri Farmer Connect</h1>
+        <h2>Growing Together</h2>
     </div>
 </div>
+
+<div id="about-us" class="about-us-section">
+    <h2>About Us</h2>
+    <p class="about-us-paragraph">
+        Welcome to Agri Farmer Connect! We are dedicated to connecting farmers with the resources they need to grow and succeed. Our platform offers a marketplace for farmers to showcase their products, access to valuable agricultural information, and a community of like-minded individuals. Join us as we grow together and support sustainable farming practices.
+    </p>
+    <div class="about-us-content">
+        <div class="about-us-item">
+            <img src="https://images.pexels.com/photos/928199/pexels-photo-928199.jpeg?auto=compress&cs=tinysrgb&w=600" alt="About Us Image 1" />
+            <p>Here at Agri Farmer Connect, we have witnessed the great sustainability and recyclability that is made possible by both the farming and energy conservation sectors. Through this platform, we envision great energy solutions being developed in South Africa</p>
+        </div>
+        <div class="about-us-item">
+            <img src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=600" alt="About Us Image 2" />
+            <p>Our primary goal is to develop a digital ecosystem where farmers, green energy experts, and enthusiasts in these fields can collaborate, share resources, and innovate in the realms of sustainable agriculture and renewable energy.</p>
+        </div>
+        <div class="about-us-item">
+            <img src="https://images.pexels.com/photos/2893129/pexels-photo-2893129.jpeg?auto=compress&cs=tinysrgb&w=600" alt="About Us Image 3" />
+            <p>At Agri Farmer Connect, we believe that these are the efforts that will drive innovation forward within South Africa. It all starts with the connection of farming individuals, right here.</p>
+        </div>
+    </div>
+</div>
+
+<div id="current-services" class="current-services-section">
+    <h2>Current Services</h2>
+    <p class="current-services-paragraph">
+        Discover the range of services we offer to support farmers and enhance agricultural productivity. Our current services include marketplace access, agricultural consulting, and training programs.
+    </p>
+    <div class="current-services-cards">
+        <div class="service-card">
+            <img src="https://images.pexels.com/photos/5529569/pexels-photo-5529569.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Service Image 1" />
+            <p>Farmers can add the various products they sell onto their profiles. The products can then be managed and changed according to the user. Farmers often use it to keep a track record of their stock, as well as showcase their products on the marketplace.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Service Image 2" />
+            <p>This is the space where all farmers connected to the platform showcase their products to other farmers. Here, farmers can view their own portfolio of products and filter through all the alternative products that other farmers have to offer.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://images.pexels.com/photos/3202235/pexels-photo-3202235.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Service Image 3" />
+            <p>Lastly, farmers on the marketplace will have their contact information shown to other farmers on the platform. This enables the farmers to easily communicate with one another outside of the application's current functionalities.</p>
+        </div>
+    </div>
+</div>
+
+<div id="faqs" class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <p class="faq-paragraph">
+        Here you'll find answers to some of the most common questions we receive. If you have a question that's not covered here, feel free to contact us for more information.
+    </p>
+    <div class="faq-item">
+        <a class="faq-question" data-bs-toggle="collapse" href="#faq1" role="button" aria-expanded="false" aria-controls="faq1">
+            How do I become a Farmer? <span class="faq-arrow">&#x25BC;</span>
+        </a>
+        <div class="collapse" id="faq1">
+            <div class="faq-answer">
+                Agri Farmer Connect offers the user the ability to register as a farmer via the registration page. Select the "Become a Farmer" text on the top right next to "login" and fill in all the required information. You must then await the approval of your farmer account.
+            </div>
+        </div>
+    </div>
+    <div class="faq-item">
+        <a class="faq-question" data-bs-toggle="collapse" href="#faq2" role="button" aria-expanded="false" aria-controls="faq2">
+            Why can I not see the marketplace? <span class="faq-arrow">&#x25BC;</span>
+        </a>
+        <div class="collapse" id="faq2">
+            <div class="faq-answer">
+                The marketplace is a list of all the farmer's products made of the site. It is only available to approved farmers who have successfully logged into the system.
+            </div>
+        </div>
+    </div>
+    <div class="faq-item">
+        <a class="faq-question" data-bs-toggle="collapse" href="#faq3" role="button" aria-expanded="false" aria-controls="faq3">
+            What is Agri Farmer Connect? <span class="faq-arrow">&#x25BC;</span>
+        </a>
+        <div class="collapse" id="faq3">
+            <div class="faq-answer">
+                Agri Farmer Connect is a platform that offers official farmers to create an account, get approved by an admin employee, and then add their own products that will be displayed to the marketplace. Additionally, they can view the products of other official farmers as well.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contact-us" class="contact-us-section">
+    <h2>Contact Us</h2>
+    <p class="contact-us-paragraph">
+        We'd love to hear from you! Whether you have a question, feedback, or need assistance, please reach out to us using the form below.
+    </p>
+    <form class="contact-us-form">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
