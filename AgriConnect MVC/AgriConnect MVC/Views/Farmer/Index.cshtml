@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<AgriConnect_MVC.Models.FarmerModel>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
 <h1>Index</h1>
 
 <table class="table">
@@ -21,34 +17,26 @@
             <th>
                 @Html.DisplayNameFor(model => model.Number)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Approved)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Surname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Approved)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
                 <td>
-                    <span class="badge @(item.Approved == "Yes" ? "badge-success" : "badge-danger")">
-                        @(item.Approved == "Yes" ? "Approved" : "Not Approved")
-                    </span>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    <a href="@Url.Action("ViewFarmerProducts", "Product", new { farmerId = item.FarmerId })">
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
                 </td>
                 <td>
                     <form asp-action="Approve" method="post">
@@ -58,12 +46,12 @@
                         </button>
                     </form>
                 </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FarmerId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FarmerId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FarmerId">Delete</a>
-            </td>
-        </tr>
-}
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.FarmerId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.FarmerId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FarmerId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

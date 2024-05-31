@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using AgriConnect_MVC.Data;
 using AgriConnect_MVC.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AgriConnect_MVC.Controllers
 {
+    [Authorize(Roles = "Employee")]
     public class EmployeeController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -92,47 +94,6 @@ namespace AgriConnect_MVC.Controllers
                 }
             }
             return View(employeeModel);
-
-            //try
-            //{
-            //    // Create a new IdentityUser
-            //    var user = new IdentityUser { UserName = employeeModel.Email, Email = employeeModel.Email, EmailConfirmed = true };
-            //    var result = await _userManager.CreateAsync(user, employeeModel.Password);
-
-            //    if (result.Succeeded)
-            //    {
-            //        // Assign the Employee role
-            //        if (!await _roleManager.RoleExistsAsync("Employee"))
-            //        {
-            //            await _roleManager.CreateAsync(new IdentityRole("Employee"));
-            //        }
-
-            //        await _userManager.AddToRoleAsync(user, "Employee");
-
-            //        // Add the employee to the Employee table
-            //        _context.Add(employeeModel);
-            //        await _context.SaveChangesAsync();
-
-            //        return RedirectToAction(nameof(Index));
-            //    }
-            //    else
-            //    {
-            //        foreach (var error in result.Errors)
-            //        {
-            //            ModelState.AddModelError(string.Empty, error.Description);
-            //        }
-            //    }
-
-            //    _context.Add(employeeModel);
-            //    await _context.SaveChangesAsync();
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //catch (DbUpdateException ex)
-            //{
-            //    // Log the exception or handle it appropriately
-            //    Console.WriteLine($"Error: {ex.Message}");
-            //    return View(employeeModel);
-            //}
         }
 
         // GET: Employee/Edit/5
@@ -163,7 +124,7 @@ namespace AgriConnect_MVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
                 try
                 {
@@ -183,7 +144,39 @@ namespace AgriConnect_MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(employeeModel);
+            catch (DbUpdateConcurrencyException ex)
+            {
+                Console.WriteLine($"Error {ex.Message}");
+                return View(employeeModel);
+            }
+
+
+            //if (id != employeeModel.EmployeeId)
+            //{
+            //    return NotFound();
+            //}
+
+            //if (ModelState.IsValid)
+            //{
+            //    try
+            //    {
+            //        _context.Update(employeeModel);
+            //        await _context.SaveChangesAsync();
+            //    }
+            //    catch (DbUpdateConcurrencyException)
+            //    {
+            //        if (!EmployeeModelExists(employeeModel.EmployeeId))
+            //        {
+            //            return NotFound();
+            //        }
+            //        else
+            //        {
+            //            throw;
+            //        }
+            //    }
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //return View(employeeModel);
         }
 
         // GET: Employee/Delete/5

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<AgriConnect_MVC.Models.ProductModel>
+
+@{
+    ViewData["Title"] = "All Farmer's Products";
+}
+
+<h1>All Products</h1>
+
+<div class="row mb-3">
+    <div class="col-md-12">
+        <form method="get" asp-action="AllProducts">
+            <div class="form-row align-items-end">
+                <div class="form-group col-md-3">
+                    <label for="farmerName">Farmer Name</label>
+                    <input type="text" class="form-control" id="farmerName" name="farmerName" placeholder="Enter farmer's name" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="farmerSurname">Farmer Surname</label>
+                    <input type="text" class="form-control" id="farmerSurname" name="farmerSurname" placeholder="Enter farmer's surname" />
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="category">Category</label>
+                    <select class="form-control" id="category" name="category">
+                        <option value="">All Categories</option>
+                        @foreach (var category in Enum.GetValues(typeof(AgriConnect_MVC.Models.ProductCategory)))
+                        {
+                            <option value="@category">@category</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate" />
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="endDate">End Date</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate" />
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12 text-right">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row mt-3">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <img src="@product.ImageUrl" class="card-img-top" alt="Product Image" style="max-height:200px; object-fit:cover;">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p>
+                        <strong>Farmer:</strong>
+                        <a href="@Url.Action("ViewFarmerProducts", "Product", new { farmerId = product.FarmerId })">
+                            @product.Farmer.Name @product.Farmer.Surname
+                        </a>
+                    </p>
+                    <p><strong>Email:</strong> @product.Farmer.Email</p>
+                    <p><strong>Phone:</strong> @product.Farmer.Number</p>
+                    <a href="javascript:void(0)" class="text-decoration-underline" onclick="toggleDetails('details-@product.ProductId')">View Details</a>
+                    <div id="details-@product.ProductId" style="display:none;">
+                        <p><strong>Category:</strong> @product.Category</p>
+                        <p><strong>Quantity:</strong> @product.Quantity</p>
+                        <p><strong>Production Date:</strong> @product.ProductionDate.ToString("d")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function toggleDetails(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+}

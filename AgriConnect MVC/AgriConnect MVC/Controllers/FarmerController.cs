@@ -21,6 +21,28 @@ namespace AgriConnect_MVC.Controllers
             _context = context;
         }
 
+        // GET: Farmer/Profile
+        public async Task<IActionResult> Profile()
+        {
+            // Get the email of the currently logged-in user
+            var userEmail = User.Identity.Name;
+
+            // Find the farmer with the corresponding email
+            var farmer = await _context.Farmers.SingleOrDefaultAsync(f => f.Email == userEmail);
+
+            if (farmer == null)
+            {
+                return NotFound("Farmer not found.");
+            }
+
+            // Fetch the products of the logged-in farmer
+            var products = await _context.Products
+                                         .Where(p => p.FarmerId == farmer.FarmerId)
+                                         .ToListAsync();
+
+            return View(products);
+        }
+
         //this method adds the approval button for employees to toggle
         [HttpPost]
         public async Task<IActionResult> Approve(int id)
@@ -100,6 +122,7 @@ namespace AgriConnect_MVC.Controllers
             return View(farmerModel);
         }
 
+
         // POST: Farmer/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -107,10 +130,29 @@ namespace AgriConnect_MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("FarmerId,Name,Surname,Email,Number,Approved")] FarmerModel farmerModel)
         {
+            if (id != farmerModel.FarmerId)
+            {
+                return NotFound();
+            }
+
             try
             {
-                _context.Add(farmerModel);
-                await _context.SaveChangesAsync();
+                try
+                {
+                    _context.Update(farmerModel);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!FarmerModelExists(farmerModel.FarmerId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch (DbUpdateException ex)

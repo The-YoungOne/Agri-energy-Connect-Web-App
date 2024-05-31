@@ -3,31 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\controllers\\farmercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\controllers\\farmercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_AgriConnect_MVC_4ddf2221_506d_4cd9_9367_60127a88184a/True/SqlTable/dbo.Farmers.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\models\\farmermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\models\\farmermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\views\\farmer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\views\\farmer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\views\\product\\viewfarmerproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\views\\product\\viewfarmerproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\views\\product\\allproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\views\\product\\allproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\views\\product\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\views\\product\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|c:\\users\\luyou\\onedrive\\desktop\\repos\\agriconnect mvc\\agriconnect mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{689D03E1-32E9-4D6C-B968-D19C6C46DC27}|AgriConnect MVC\\AgriConnect MVC.csproj|solutionrelative:agriconnect mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,95 +42,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dbo.Farmers [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_AgriConnect_MVC_4ddf2221_506d_4cd9_9367_60127a88184a/True/SqlTable/dbo.Farmers.sql",
-              "ToolTip": "dbo.Farmers [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-05-27T19:00:46.046Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FarmerController.cs",
-              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\FarmerController.cs",
-              "RelativeDocumentMoniker": "AgriConnect MVC\\Controllers\\FarmerController.cs",
-              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\FarmerController.cs",
-              "RelativeToolTip": "AgriConnect MVC\\Controllers\\FarmerController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "AgriConnect MVC\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "AgriConnect MVC\\Controllers\\EmployeeController.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAmwJAAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T18:53:40.615Z",
+              "WhenOpened": "2024-05-31T02:17:19.531Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FarmerController.cs",
+              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\FarmerController.cs",
+              "RelativeDocumentMoniker": "AgriConnect MVC\\Controllers\\FarmerController.cs",
+              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\FarmerController.cs",
+              "RelativeToolTip": "AgriConnect MVC\\Controllers\\FarmerController.cs",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAAAJwAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T02:15:22.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Farmer\\Edit.cshtml",
+              "RelativeDocumentMoniker": "AgriConnect MVC\\Views\\Farmer\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Farmer\\Edit.cshtml",
+              "RelativeToolTip": "AgriConnect MVC\\Views\\Farmer\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-31T02:14:50.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ViewFarmerProducts.cshtml",
+              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Product\\ViewFarmerProducts.cshtml",
+              "RelativeDocumentMoniker": "AgriConnect MVC\\Views\\Product\\ViewFarmerProducts.cshtml",
+              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Product\\ViewFarmerProducts.cshtml",
+              "RelativeToolTip": "AgriConnect MVC\\Views\\Product\\ViewFarmerProducts.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-31T01:45:43.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Product\\Profile.cshtml",
+              "RelativeDocumentMoniker": "AgriConnect MVC\\Views\\Product\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Product\\Profile.cshtml",
+              "RelativeToolTip": "AgriConnect MVC\\Views\\Product\\Profile.cshtml",
+              "ViewState": "AQIAABsAAAAAAAAAAAAwwCgAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-30T10:15:09.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AllProducts.cshtml",
+              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Product\\AllProducts.cshtml",
+              "RelativeDocumentMoniker": "AgriConnect MVC\\Views\\Product\\AllProducts.cshtml",
+              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Product\\AllProducts.cshtml",
+              "RelativeToolTip": "AgriConnect MVC\\Views\\Product\\AllProducts.cshtml",
+              "ViewState": "AQIAABoAAAAAAAAAAAAwwFgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-30T08:16:57.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "AgriConnect MVC\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\ProductController.cs",
               "RelativeToolTip": "AgriConnect MVC\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAAAFwAAAAAAAAA",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAEkAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-27T18:42:39.108Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EmployeeController.cs",
-              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\EmployeeController.cs",
-              "RelativeDocumentMoniker": "AgriConnect MVC\\Controllers\\EmployeeController.cs",
-              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Controllers\\EmployeeController.cs",
-              "RelativeToolTip": "AgriConnect MVC\\Controllers\\EmployeeController.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAwwBYAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T18:49:09.906Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Product\\Create.cshtml",
-              "RelativeDocumentMoniker": "AgriConnect MVC\\Views\\Product\\Create.cshtml",
-              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Product\\Create.cshtml",
-              "RelativeToolTip": "AgriConnect MVC\\Views\\Product\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAASAAAA",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "AgriConnect MVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "AgriConnect MVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAC0AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-27T18:44:57.984Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductModel.cs",
-              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Models\\ProductModel.cs",
-              "RelativeDocumentMoniker": "AgriConnect MVC\\Models\\ProductModel.cs",
-              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Models\\ProductModel.cs",
-              "RelativeToolTip": "AgriConnect MVC\\Models\\ProductModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T18:36:01.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FarmerModel.cs",
-              "DocumentMoniker": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Models\\FarmerModel.cs",
-              "RelativeDocumentMoniker": "AgriConnect MVC\\Models\\FarmerModel.cs",
-              "ToolTip": "C:\\Users\\luyou\\OneDrive\\Desktop\\repos\\AgriConnect MVC\\AgriConnect MVC\\Models\\FarmerModel.cs",
-              "RelativeToolTip": "AgriConnect MVC\\Models\\FarmerModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T18:35:45.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-29T18:08:43.433Z"
             }
           ]
         }

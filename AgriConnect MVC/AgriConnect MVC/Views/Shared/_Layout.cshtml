@@ -11,7 +11,9 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Agri Connect</a>
+            <a class="navbar-brand" href="#">
+                <img src="https://logodix.com/logo/343516.jpg" alt="Agri Connect Logo" style="height: 40px;" />
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,7 +42,7 @@
 
                         <!--List of Farmer's Products-->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="AllProducts">Marketplace</a>
                         </li>
                     }
 
@@ -48,9 +50,13 @@
                     <!--Access for the Farmers-->
                     @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Farmer"))
                     {
-                        <!--List of Farmer's Products-->
+                        <!--List of All Farmer Products-->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="AllProducts">Marketplace</a>
+                        </li>
+                        <!--List of Farmer's Personal Products-->
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Profile">My Products</a>
                         </li>
                     }
 
@@ -63,45 +69,6 @@
             </div>
         </div>
     </nav>
-
-       @*  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AgriConnect_MVC</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-
-                        @if (User.Identity != null && User.Identity.IsAuthenticated)
-                        {
-                            <!--List of Employees-->
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Index">Employees</a>
-                            </li>
-
-                            <!--List of Farmers-->
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Farmer" asp-action="Index">Farmers</a>
-                            </li>
-
-                            <!--List of Farmer's Products-->
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
-                            </li>
-                        }
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav> *@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
